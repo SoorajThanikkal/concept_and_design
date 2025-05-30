@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C2D - Concept to Design</title>
+    <link rel="icon" href="{% static "images/logo_copy.png" %}" type="image/gif" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -44,7 +46,7 @@
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
-                    <img src="/api/placeholder/80/80" alt="C2D Logo" class="h-12 w-12 rounded-full">
+                    <img src="{% static "images/logo_copy.png" %}" alt="C2D Logo" class="h-12 w-12 rounded-full">
                     <div>
                         <h1 class="text-2xl font-bold text-gray-800">C<span class="text-primary">2</span>D</h1>
                         <p class="text-xs text-gray-600">Concept to Design</p>
@@ -89,7 +91,7 @@
                     </div>
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="/api/placeholder/600/400" alt="Construction Project" class="rounded-lg shadow-lg w-full">
+                    <img src="{% static "images/logo_copy.png" %}" alt="Construction Project" class="rounded-lg shadow-lg w-full">
                 </div>
             </div>
         </div>
