@@ -12,11 +12,3 @@ class Projects(models.Model):
     
     def __str__(self):
         return self.name
-    def delete(self, *args, **kwargs):
-        # Delete the file from filesystem
-        if self.image:
-            if os.path.isfile(self.image.path):
-                os.remove(self.image.path)
-        
-        # Call the parent delete method
-        super().delete(*args, **kwargs)
