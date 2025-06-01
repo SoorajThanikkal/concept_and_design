@@ -41,3 +41,22 @@ def send_message(request):
             return JsonResponse({'success': False, 'error': str(e)})
 
     return JsonResponse({'success': False, 'error': 'Invalid request'})
+# In your views.py
+from django.http import Http404, HttpResponse
+from django.conf import settings
+import os
+
+def serve_media(request, path):
+    if not settings.DEBUG:
+        media_root = settings.MEDIA_ROOT
+        file_path = os.path.join(media_root, path)
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as f:
+                response = HttpResponse(f.read())
+                # Set appropriate content type
+                if path.endswith('.jpg') or path.endswith('.jpeg'):
+                    response['Content-Type'] = 'image/jpeg'
+                elif path.endswith('.png'):
+                    response['Content-Type'] = 'image/png'
+                return response
+    raise Http404

@@ -241,11 +241,17 @@
            <div id="galleryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {% for j in proj %}
                     <div class="gallery-item {% if forloop.counter > 6 %}hidden{% endif %}" data-index="{{ forloop.counter }}">
-                        <div onclick="openModal('{{ j.image.url }}')" class="cursor-pointer overflow-hidden rounded-lg shadow-md" data-aos="zoom-in" data-aos-delay="100">
-                            <img src="{{ j.image.url }}" alt="{{ j.name }}" class="w-full h-64 object-cover hover:scale-110 transition duration-300">
-                            <div class="p-4">
-                            <h4 class="text-lg font-bold text-gray-800">{{ j.name }}</h4>
-                            <p class="text-gray-600">{{ j.sub_text }}</p>
+                        <div onclick="openModal('{{ j.image.url }}')" class="cursor-pointer overflow-hidden rounded-lg shadow-md h-80 flex flex-col" data-aos="zoom-in" data-aos-delay="100">
+                            <!-- Fixed image container -->
+                            <div class="h-48 w-full overflow-hidden flex-shrink-0">
+                                <img src="{{ j.image.url }}" alt="{{ j.name }}" class="w-full h-full object-cover hover:scale-110 transition duration-300">
+                            </div>
+                            <!-- Fixed content container -->
+                            <div class="p-4 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-800 line-clamp-2">{{ j.name }}</h4>
+                                    <p class="text-gray-600 text-sm line-clamp-3">{{ j.sub_text }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
